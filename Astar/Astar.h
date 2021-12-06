@@ -7,11 +7,13 @@
 using namespace std;
 struct OP
 {
-	OP(int s_x, int s_y, int e_x, int e_y, int r, int c) :S_start_x{ s_x }, S_start_y{ s_y }, 
+	OP(int s_x, int s_y, int e_x, int e_y, int r, int c, string map, string valley) :S_start_x{ s_x }, S_start_y{ s_y }, 
 		S_goal_x{ e_x }, S_goal_y{ e_y }, row{ r }, col{ c }
 	{
 		map.resize(row, col);
-		map.read();
+		map.read_ascii(map);
+		this->valley.resize(row, col);
+		this->valley.read_ascii(valley);
 	}
 	int S_start_x; //起点x
 	int S_start_y; //起点y
@@ -20,6 +22,7 @@ struct OP
 	int row; //地图行数
 	int col; //地图列数
 	Map map; //地图
+	Map valley;
 };
 
 struct Point;

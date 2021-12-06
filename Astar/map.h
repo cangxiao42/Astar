@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<fstream>
 using namespace std;
 
 
@@ -32,7 +33,7 @@ public:
 		m_pMat = new double[width * height];
 	}
 
-	void read()
+	void read()//读二进制
 	{
 		FILE* file = NULL;
 		fopen_s(&file, "C:\\2020\\hight.bin", "rb");
@@ -52,6 +53,16 @@ public:
 		}
 		fclose(file);
 		delete[] tmp;
+	}
+	void read_ascii(string str)//读ascii文件
+	{
+		//int* data = new int[200 * 200];//定义一个1500*2的矩阵，用于存放数据
+		ifstream infile;//定义读取文件流，相对于程序来说是in
+		infile.open(str);//打开文件
+		for (int i = 0; i < m_x * m_y; i++)//定义行循环
+		{
+			infile >> m_pMat[i];//读取一个值（空格、制表符、换行隔开）就写入到矩阵中，行列不断循环进行
+		}
 	}
 public:
 	~Map(void)

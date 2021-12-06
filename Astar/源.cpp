@@ -13,9 +13,7 @@ using namespace std;
 */
 int main()
 {
-	OP p{ 0,0,1000,1000,5679,4464 }; //存放起点终点，和构造好的地图
-	//priority_queue<Point, vector<Point>, cmp> open;
-	//list<Point*> open; //open表，存放指针，就省去了很多空间
+	OP p{ 0,199,199,199,200,200,"C:/2020/map.txt","C:/Users/Lenovo/Desktop/shangu1.txt" }; //存放起点终点，和构造好的地图
 	
 	BinaryHeap open;
 	list<Point*> close; //close表也一样
@@ -50,7 +48,7 @@ int main()
 		{
 			int x = current->x + sport[i][0];
 			int y = current->y + sport[i][1];
-			if (x >= 0 && x <= p.row && y >= 0 && y <= p.col)
+			if (x >= 0 && x < p.row && y > 0 && y < p.col)
 			{	
 				if (stage[x][y].get_in_close())
 				{
