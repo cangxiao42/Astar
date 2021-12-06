@@ -21,12 +21,18 @@
     <ClCompile Include="Astar.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BinaryHeap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Astar.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

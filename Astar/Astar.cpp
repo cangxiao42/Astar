@@ -13,3 +13,4 @@ double cost(int s_x, int s_y, int g_x, int g_y, OP& p)
 	double dist = sqrt(c1 + c2 + c3);
 	return dist;
 }
+

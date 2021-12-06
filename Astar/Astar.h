@@ -2,9 +2,9 @@
 #include<iostream>
 #include<cmath>
 #include"map.h"
+#include<vector>
 
 using namespace std;
-
 struct OP
 {
 	OP(int s_x, int s_y, int e_x, int e_y, int r, int c) :S_start_x{ s_x }, S_start_y{ s_y }, 
@@ -40,6 +40,14 @@ struct Point
 		this->h = cost(x, y, p.S_goal_x, p.S_goal_y, p);
 		f = this->g + this->h;
 	}
+	bool operator<(const Point& p) const
+	{
+		return this->f < p.f;
+	}
+	bool operator>(const Point& p) const
+	{
+		return this->f > p.f;
+	}
 	int x;
 	int y;
 	double g;
@@ -47,7 +55,6 @@ struct Point
 	double f;
 	Point* pre;
 };
-
 
 struct cmp
 {
@@ -61,9 +68,10 @@ struct flag
 {
 	bool visited;
 	bool open;
+	int open_pos;
 	bool close;
 	Point* ptr;
-	flag() :visited{ false }, open{ false }, close{false}
+	flag() :visited{ false }, open{ false }, close{ false }, open_pos{ 0 }, ptr{nullptr}
 	{
 
 	}
@@ -91,6 +99,7 @@ struct flag
 		return close;
 	}
 };
+
 
 
 
